@@ -1,8 +1,56 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd
+		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
 	
+	<!-- properties 별도 사용시  -->
+	<!-- <bean id="resources" class="org.springframework.beans.factory.config.PropertiesFactoryBean">
+        <property name="locations">
+            <list>
+                <value>classpath:properties/application#{systemProperties['env']}.properties</value>
+                <value>classpath:properties/infra.properties</value>
+            </list>
+        </property>
+    </bean> -->
 	<!-- Root Context: defines shared resources visible to all other web components -->
-		
+	<!-- <context:component-scan base-package="com.sds.ioffice">
+		<context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller" />
+	</context:component-scan> --> 
+	
+	
+	
+<!-- Transaction -->
+	<!-- <tx:advice id="txAdvice" transaction-manager="transactionManager">
+		<tx:attributes>
+			<tx:method name="create*" propagation="REQUIRED" timeout="30"/>
+			<tx:method name="delete*" propagation="REQUIRED" timeout="30"/>
+			<tx:method name="update*" propagation="REQUIRED" timeout="30"/>
+			<tx:method name="select*" propagation="REQUIRED" read-only="true" timeout="30"/>
+			<tx:method name="get*" propagation="REQUIRED" read-only="true" timeout="30"/>
+		</tx:attributes>
+	</tx:advice>
+	
+	<tx:advice id="txNewAdvice" transaction-manager="transactionManager">
+		<tx:attributes>
+			<tx:method name="nTxCreate*" propagation="REQUIRES_NEW" timeout="30"/>
+			<tx:method name="nTxDelete*" propagation="REQUIRES_NEW" timeout="30"/>
+			<tx:method name="nTxUpdate*" propagation="REQUIRES_NEW" timeout="30"/>
+			<tx:method name="nTxSelect*" propagation="REQUIRES_NEW" read-only="true" timeout="30"/>
+		</tx:attributes>
+	</tx:advice> -->
+
+	<!-- AOP -->
+	<!-- <aop:config>
+		<aop:advisor pointcut="execution(* *..*Service.*(..))" advice-ref="txAdvice"/>
+	</aop:config>
+	
+	<aop:config>
+		<aop:advisor pointcut="execution(* *..*Biz.*(..))" advice-ref="txNewAdvice"/>
+	</aop:config> -->
 </beans>
