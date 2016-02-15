@@ -1,4 +1,4 @@
-package com.plat.pet.pilot;
+package com.plat.pet.pilot.ctrl;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -7,11 +7,17 @@ import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+
+import com.plat.pet.pilot.Maru;
+import com.plat.pet.pilot.RespObjt;
+import com.plat.pet.pilot.ResponseObject;
+import com.plat.pet.pilot.dao.MaruDao;
 
 @Controller
 @RequestMapping("/pilot")
@@ -35,6 +41,12 @@ public class PilotController {
 	 * - business logic
 	 * - OAuth?
 	 */
+	
+	/**
+	 * Test DAO
+	 */
+//	@Autowired
+//	private MaruDao maruDao;
 	
 	/**
 	 * pilot controller for test
@@ -67,4 +79,30 @@ public class PilotController {
 		
 		return rtnList;
 	}
+	
+	/**
+	 * responseObject Test
+	 */
+	@RequestMapping(value="pMaruObjt", method=RequestMethod.GET)
+	public @ResponseBody ResponseObject<List<Maru>> maruObjt(HttpServletRequest req){
+		Maru objtMaru = new Maru();
+		objtMaru.setId("Maru-k");
+		objtMaru.setLoc("Korea");
+		Maru objtMaruSnd = new Maru();
+		objtMaruSnd.setId("Maru-k");
+		objtMaruSnd.setLoc("Korea");
+		ResponseObject<List<Maru>> rtnList = new ResponseObject<List<Maru>>();
+		ArrayList<Maru> mr = new ArrayList<Maru>();
+		mr.add(objtMaru);
+		mr.add(objtMaruSnd);
+		
+//		maruDao.selectTest();
+		
+		
+		rtnList.setCode("20200");
+		rtnList.setData(mr);
+		return rtnList;
+	}
+	
+	
 }
