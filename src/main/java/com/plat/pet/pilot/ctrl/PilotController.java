@@ -45,8 +45,8 @@ public class PilotController {
 	/**
 	 * Test DAO
 	 */
-//	@Autowired
-//	private MaruDao maruDao;
+	@Autowired
+	private MaruDao maruDao;
 	
 	/**
 	 * pilot controller for test
@@ -96,7 +96,7 @@ public class PilotController {
 		mr.add(objtMaru);
 		mr.add(objtMaruSnd);
 		
-//		maruDao.selectTest();
+		maruDao.selectTest();
 		
 		
 		rtnList.setCode("20200");

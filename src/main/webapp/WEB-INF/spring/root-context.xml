@@ -9,6 +9,19 @@
 		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
 	
+		<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
+	        <property name="driverClassName" value="com.mysql.jdbc.Driver" />
+	        <property name="url" value="jdbc:mysql://localhost:3306/pets" />
+	        <property name="username" value="pets" />
+	        <property name="password" value="pets!123" />
+		</bean>
+		 <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+		        <property name="dataSource" ref="dataSource" />
+		        <property name="mapperLocations" value="classpath*:query/**" />
+		 </bean>
+		 <bean id="sqlSession" class="org.mybatis.spring.SqlSessionTemplate">
+		        <constructor-arg ref="sqlSessionFactory" />
+		 </bean>
 	<!-- properties 별도 사용시  -->
 	<!-- <bean id="resources" class="org.springframework.beans.factory.config.PropertiesFactoryBean">
         <property name="locations">
@@ -18,12 +31,6 @@
             </list>
         </property>
     </bean> -->
-	<!-- Root Context: defines shared resources visible to all other web components -->
-	<!-- <context:component-scan base-package="com.sds.ioffice">
-		<context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller" />
-	</context:component-scan> --> 
-	
-	
 	
 <!-- Transaction -->
 	<!-- <tx:advice id="txAdvice" transaction-manager="transactionManager">
