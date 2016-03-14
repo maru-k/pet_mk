@@ -5,15 +5,14 @@
 	xmlns:tx="http://www.springframework.org/schema/tx"
 	xmlns:aop="http://www.springframework.org/schema/aop"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
-		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd
-		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd
+
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
 	
 		<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
 	        <property name="driverClassName" value="com.mysql.jdbc.Driver" />
-	        <property name="url" value="jdbc:mysql://localhost:3306/pets" />
-	        <property name="username" value="pets" />
-	        <property name="password" value="pets!123" />
+	        <property name="url" value="jdbc:mysql://45.55.0.13:3306/bluemungs" />
+	        <property name="username" value="bluemungs" />
+	        <property name="password" value="bluemungs" />
 		</bean>
 		 <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
 		        <property name="dataSource" ref="dataSource" />
@@ -22,42 +21,5 @@
 		 <bean id="sqlSession" class="org.mybatis.spring.SqlSessionTemplate">
 		        <constructor-arg ref="sqlSessionFactory" />
 		 </bean>
-	<!-- properties 별도 사용시  -->
-	<!-- <bean id="resources" class="org.springframework.beans.factory.config.PropertiesFactoryBean">
-        <property name="locations">
-            <list>
-                <value>classpath:properties/application#{systemProperties['env']}.properties</value>
-                <value>classpath:properties/infra.properties</value>
-            </list>
-        </property>
-    </bean> -->
 	
-<!-- Transaction -->
-	<!-- <tx:advice id="txAdvice" transaction-manager="transactionManager">
-		<tx:attributes>
-			<tx:method name="create*" propagation="REQUIRED" timeout="30"/>
-			<tx:method name="delete*" propagation="REQUIRED" timeout="30"/>
-			<tx:method name="update*" propagation="REQUIRED" timeout="30"/>
-			<tx:method name="select*" propagation="REQUIRED" read-only="true" timeout="30"/>
-			<tx:method name="get*" propagation="REQUIRED" read-only="true" timeout="30"/>
-		</tx:attributes>
-	</tx:advice>
-	
-	<tx:advice id="txNewAdvice" transaction-manager="transactionManager">
-		<tx:attributes>
-			<tx:method name="nTxCreate*" propagation="REQUIRES_NEW" timeout="30"/>
-			<tx:method name="nTxDelete*" propagation="REQUIRES_NEW" timeout="30"/>
-			<tx:method name="nTxUpdate*" propagation="REQUIRES_NEW" timeout="30"/>
-			<tx:method name="nTxSelect*" propagation="REQUIRES_NEW" read-only="true" timeout="30"/>
-		</tx:attributes>
-	</tx:advice> -->
-
-	<!-- AOP -->
-	<!-- <aop:config>
-		<aop:advisor pointcut="execution(* *..*Service.*(..))" advice-ref="txAdvice"/>
-	</aop:config>
-	
-	<aop:config>
-		<aop:advisor pointcut="execution(* *..*Biz.*(..))" advice-ref="txNewAdvice"/>
-	</aop:config> -->
 </beans>

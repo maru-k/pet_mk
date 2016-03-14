@@ -11,9 +11,10 @@ public class MaruDaoImpl implements MaruDao{
 	private SqlSession query;
 	
 	@Override
-	public void selectTest() {
+	public String selectTest() {
 		// TODO Auto-generated method stub
-		query.selectOne("maru.maruTest");
+//		query.selectOne("maru.maruTest");
+		return query.selectOne("maru.maruTest");
 	}
 
 }

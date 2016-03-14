@@ -86,18 +86,14 @@ public class PilotController {
 	@RequestMapping(value="pMaruObjt", method=RequestMethod.GET)
 	public @ResponseBody ResponseObject<List<Maru>> maruObjt(HttpServletRequest req){
 		Maru objtMaru = new Maru();
-		objtMaru.setId("Maru-k");
-		objtMaru.setLoc("Korea");
-		Maru objtMaruSnd = new Maru();
-		objtMaruSnd.setId("Maru-k");
-		objtMaruSnd.setLoc("Korea");
-		ResponseObject<List<Maru>> rtnList = new ResponseObject<List<Maru>>();
 		ArrayList<Maru> mr = new ArrayList<Maru>();
+		
+		ResponseObject<List<Maru>> rtnList = new ResponseObject<List<Maru>>();
+		
+		String rtnVal = maruDao.selectTest();
+		objtMaru.setId(rtnVal);
+		objtMaru.setLoc("Query Test");
 		mr.add(objtMaru);
-		mr.add(objtMaruSnd);
-		
-		maruDao.selectTest();
-		
 		
 		rtnList.setCode("20200");
 		rtnList.setData(mr);
