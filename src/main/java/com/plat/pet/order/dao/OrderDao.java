@@ -10,4 +10,6 @@ public interface OrderDao {
 	public List<OrderList> selectMyBeautyList(String userId);
 	
 	public Order selectOrderInfo(String orderId);
+	
+	public int insertOrder(Order order);
 }

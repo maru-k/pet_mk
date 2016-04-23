@@ -27,4 +27,10 @@ public class OrderDaoImpl implements OrderDao{
 		return query.selectOne("order.orderInfoByOrderId",orderId);
 	}
 
+	@Override
+	public int insertOrder(Order order) {
+		// TODO Auto-generated method stub
+		return query.insert("order.insertOrder", order);
+	}
+
 }
