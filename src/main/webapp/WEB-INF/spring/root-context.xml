@@ -7,7 +7,10 @@
 	
 		<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
 	        <property name="driverClassName" value="com.mysql.jdbc.Driver" />
+<<<<<<< HEAD
 	        <!-- <property name="url" value="jdbc:mysql://45.55.0.13:3306/bluemungs" /> -->
+=======
+>>>>>>> branch 'master' of https://github.com/maru-k/pet_mk.git
 	        <property name="url" value="jdbc:mysql://52.79.58.101:3306/bluemungs" />
 	        <property name="username" value="root" />
 	        <property name="password" value="bluemungs" />

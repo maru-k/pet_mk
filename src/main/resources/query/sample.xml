@@ -1,7 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="maru">
+	<!--   <resultMap id="beautyResultMap" type="com.plat.pet.pilot.MyBeautyList">
+        <id property="orderId" column="ORDER_ID"/>
+        <result property="orderSectCd" column="ORDER_SECT_CD"/>
+        <result property="petSectCd" column="PET_SECT_CD"/>
+        <result property="petWeight" column="PET_WEIGHT"/>
+        <result property="orderRegDtm" column="ORDER_REG_DTM"/>
+	</resultMap>-->
+
 	<select id="maruTest" resultType="String">
 		SELECT 1 FROM DUAL
 	</select>
+	
 </mapper>

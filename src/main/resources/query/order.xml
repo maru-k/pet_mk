@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="order">
+	<!--   <resultMap id="beautyResultMap" type="com.plat.pet.pilot.MyBeautyList">
+        <id property="orderId" column="ORDER_ID"/>
+        <result property="orderSectCd" column="ORDER_SECT_CD"/>
+        <result property="petSectCd" column="PET_SECT_CD"/>
+        <result property="petWeight" column="PET_WEIGHT"/>
+        <result property="orderRegDtm" column="ORDER_REG_DTM"/>
+	</resultMap>-->
+	
+	<select id="orderList" resultType="com.plat.pet.order.model.OrderList" parameterType="String">
+		SELECT ORDER_ID AS orderId, 
+	       ORDER_SECT_CD AS orderSectCd, 
+	       PET_SECT_CD AS petSectCd, 
+	       PET_SECT_DETAIL_CD AS petSectDetailCd, 
+	       PET_WEIGHT AS petWeight, 
+	       ORDER_REG_DTM AS orderRegDtm
+		FROM TB_ORDER_F A 
+		INNER JOIN TB_USER_F B ON A.USER_ID = B.USER_ID 
+		WHERE A.USER_ID = #{userId}
+	</select>
+	
+	<select id="orderInfoByOrderId" resultType="com.plat.pet.order.model.Order" parameterType="String">
+		SELECT ORDER_ID AS orderId, 
+		       ORDER_SECT_CD AS orderSectCd, 
+		       USER_NAME AS userName,
+		       USER_LOGIN_ID AS userLoginId,
+		       USER_NICKNM AS userNicknm,
+		       PET_SECT_CD AS petSectCd, 
+		       PET_SECT_DETAIL_CD AS petSectDetailCd, 
+		       PET_WEIGHT AS petWeight, 
+		       ORDER_REG_DTM AS orderRegDtm,
+		       ORDER_REGION AS orderRegion,
+		       USER_OPINION AS userOpinion
+		FROM TB_ORDER_F A 
+		INNER JOIN TB_USER_F B ON A.USER_ID = B.USER_ID 
+		WHERE A.ORDER_ID = #{orderId}
+	</select>
+</mapper>
