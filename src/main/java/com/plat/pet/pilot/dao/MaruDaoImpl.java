@@ -1,13 +1,12 @@
 package com.plat.pet.pilot.dao;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import com.plat.pet.stl.model.Order;
+import com.plat.pet.order.model.Order;
 
 @Repository
 public class MaruDaoImpl implements MaruDao{
@@ -37,6 +36,12 @@ public class MaruDaoImpl implements MaruDao{
 //		odr.setUserOpinion("Punky! round");
 //		maruMok.add(odr);
 //		return maruMok;
+	}
+
+	@Override
+	public String selectTest() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }

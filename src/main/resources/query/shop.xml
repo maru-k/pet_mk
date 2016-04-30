@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="shop">
+	<insert id="insertNewShop" parameterType="com.plat.pet.shop.model.Shop">
+		INSERT INTO TB_SHOP_F (
+			  SHOP_ID
+			, USER_ID
+			, SHOP_NAME
+			, SHOP_STAT_CD
+			, SHOP_SECT_CD
+			, SHOP_DESC
+			, SHOP_TELNO
+			, SHOP_CELNO
+			, SHOP_PHOTO_ID
+			, SHOP_ADDR
+			, SHOP_ADDR_DETAIL
+			, LAST_ACT_DTM
+			, SHOP_POINT
+			)
+		VALUES(
+			  #{shopId}
+			, #{userId}
+			, #{shopNm}
+			, #{shopStatCd}
+			, #{shopSectCd}
+			, #{shopDesc}
+			, #{shopTelNo}
+			, #{shopCelNo}
+			, #{shopPhotoId}
+			, #{shopAddr}
+			, #{shopAddrDetail}
+			, now()
+			, 0
+			)
+	</insert>
+	
+</mapper>

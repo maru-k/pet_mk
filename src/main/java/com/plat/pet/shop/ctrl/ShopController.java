@@ -46,9 +46,22 @@ public class ShopController {
 	 * request POST
 	 * return List<class>
 	 */
-	@RequestMapping(value="/", method=RequestMethod.POST)
+	@RequestMapping(value="newShop", method=RequestMethod.POST)
 	public @ResponseBody void insertNewShop(@RequestBody Shop shop){
-		shopDao.insertNewShop(shop); 
+		Shop maru = new Shop();
+		maru.setShopCelNo("010-9164-8308");
+		maru.setShopOwnerNm("영근마루");
+		maru.setShopAddr("01230");
+		maru.setShopAddrDetail("home addr detail");
+		maru.setShopDesc("description");
+		maru.setShopId("maru0000000000");
+		maru.setShopNm("shop Name");
+		maru.setShopPhotoId("photoId");
+		maru.setShopSectCd("1");
+		maru.setShopStatCd("1");
+		maru.setShopTelNo("telnumber");
+		maru.setUserId("maruUserId");
+		shopDao.insertNewShop(maru); 
 	}
 		
 }

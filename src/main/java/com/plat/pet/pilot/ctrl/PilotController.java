@@ -14,11 +14,11 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.plat.pet.order.model.Order;
 import com.plat.pet.pilot.Maru;
 import com.plat.pet.pilot.RespObjt;
 import com.plat.pet.pilot.ResponseObject;
 import com.plat.pet.pilot.dao.MaruDao;
-import com.plat.pet.stl.model.Order;
 
 @Controller
 @RequestMapping("/pilot")

@@ -29,7 +29,7 @@ public class ShopDaoImpl implements ShopDao{
 	@Override
 	public void insertNewShop(Shop shop) {
 		// TODO Auto-generated method stub
-		
+		query.insert("shop.insertNewShop", shop);
 	}
 	
 
