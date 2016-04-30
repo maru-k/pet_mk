@@ -18,6 +18,7 @@ import com.plat.pet.pilot.Maru;
 import com.plat.pet.pilot.RespObjt;
 import com.plat.pet.pilot.ResponseObject;
 import com.plat.pet.pilot.dao.MaruDao;
+import com.plat.pet.stl.model.Order;
 
 @Controller
 @RequestMapping("/pilot")
@@ -48,6 +49,7 @@ public class PilotController {
 	@Autowired
 	private MaruDao maruDao;
 	
+	private String rsCd = "20200";
 	/**
 	 * pilot controller for test
 	 * request GET
@@ -90,13 +92,27 @@ public class PilotController {
 		
 		ResponseObject<List<Maru>> rtnList = new ResponseObject<List<Maru>>();
 		
-		String rtnVal = maruDao.selectTest();
-		objtMaru.setId(rtnVal);
+		List<Order> rtnVal = maruDao.selectList("maru");
+		
+		
+//		objtMaru.setId(rtnVal);
 		objtMaru.setLoc("Query Test");
 		mr.add(objtMaru);
 		
 		rtnList.setCode("20200");
 		rtnList.setData(mr);
+		return rtnList;
+	}
+	
+	/**
+	 * selectList test
+	 */
+	@RequestMapping(value="pMaruList", method=RequestMethod.POST)
+	public @ResponseBody ResponseObject<List<Order>> odrList(HttpServletRequest req){
+		ResponseObject<List<Order>> rtnList = new ResponseObject<>();
+		List<Order> rtn = maruDao.selectList("maru");
+		rtnList.setCode(rsCd);
+		rtnList.setData(rtn);
 		return rtnList;
 	}
 	
