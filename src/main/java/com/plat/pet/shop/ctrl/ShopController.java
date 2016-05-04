@@ -61,7 +61,12 @@ public class ShopController {
 		maru.setShopStatCd("1");
 		maru.setShopTelNo("telnumber");
 		maru.setUserId("maruUserId");
-		shopDao.insertNewShop(maru); 
+		try{
+			shopDao.insertNewShop(maru);	
+		}catch(Exception e){
+			System.out.println("ERRRRRRRR");
+		}
+		 
 	}
 		
 }

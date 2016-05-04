@@ -2,14 +2,26 @@ package com.plat.pet.shop.dao;
 
 import java.util.List;
 
-import com.plat.pet.shop.model.Shop;
+import org.springframework.stereotype.Repository;
 
-public interface ShopDao {
+import com.plat.pet.cmm.PetDaoSupport;
+import com.plat.pet.shop.model.Shop;
+@Repository
+public class ShopDao extends PetDaoSupport{
 	
-	public List<Shop> selectShopList();
-	
-	public Shop selectShopInfo(String shopId);
-	
-	public void insertNewShop(Shop shop);
+	public List<Shop> selectShopList() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public Shop selectShopInfo(String shopId) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public int insertNewShop(Shop shop) {
+		// TODO Auto-generated method stub
+		return getSqlSession().insert("shop.insertNewShop", shop);
+	}
 	
 }
