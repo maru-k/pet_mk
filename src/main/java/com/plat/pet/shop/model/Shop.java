@@ -1,7 +1,5 @@
 package com.plat.pet.shop.model;
 
-import java.util.Date;
-
 public class Shop {
 	private String shopId;
 	private String shopSectCd;

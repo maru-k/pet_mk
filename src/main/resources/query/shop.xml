@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="shop">
-	<insert id="insertNewShop" parameterType="com.plat.pet.shop.model.Shop">
+	<insert id="insertNewShop" parameterType="Shop">
 		INSERT INTO TB_SHOP_F (
 			  SHOP_ID
 			, USER_ID
