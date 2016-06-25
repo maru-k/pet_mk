@@ -16,7 +16,7 @@ public class ShopDao extends PetDaoSupport{
 
 	public Shop selectShopInfo(String shopId) {
 		// TODO Auto-generated method stub
-		return null;
+		return getSqlSession().selectOne("shop.selectShopInfo", shopId);
 	}
 
 	public int insertNewShop(Shop shop) {

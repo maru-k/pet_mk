@@ -14,7 +14,8 @@
 		 <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
 		        <property name="dataSource" ref="dataSource" />
 		        <property name="mapperLocations" value="classpath*:query/**" />
-		        <property name="typeAliasesPackage" value="com.plat.pet"></property>
+		        <property name="typeAliasesPackage" value="com.plat.pet.order.model
+		        										  ,com.plat.pet.shop.model"></property>
 		 </bean>
 		 <bean id="sqlSession" class="org.mybatis.spring.SqlSessionTemplate">
 		        <constructor-arg ref="sqlSessionFactory" />

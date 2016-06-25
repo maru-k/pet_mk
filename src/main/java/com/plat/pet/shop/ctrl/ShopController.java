@@ -70,6 +70,17 @@ public class ShopController {
 		 
 	}
 	
+	@RequestMapping(value="shopInfo", method=RequestMethod.POST)
+	public @ResponseBody ResponseObject<Shop> selectShopInfo(@RequestBody Map<String, Object> paramMap){
+		ResponseObject<Shop> response = new ResponseObject<>();
+		String shopId = (String) paramMap.get("shopId");
+		Shop shopInfo = shopDao.selectShopInfo(shopId);
+		response.setData(shopInfo);
+		
+		return response;
+		
+	}
+	
 	//ID generation ==> util class로 뺄것
 	public String getId(){
 
